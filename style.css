@@ -1,4 +1,10 @@
-
+.logo{	
+	
+	height: 200px;
+	width: 400px;
+	background-image:url('AmazingSpiderman.jpg'); 
+	background-repeat: no-repeat;	
+}
 
 img{
 

@@ -6,7 +6,6 @@
 		<meta name = "keywords" content = "calculator, simple calculator, calc, simple calc"/>
 		<link rel = "stylesheet" href = "/Calculator/styleCalculator.css"/>
 		<script type = "text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
-		<!--<script type = "text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>-->
 		<script type = "text/javascript" src = "/Calculator/calculator.js"> </script>
 			
 		<title>Simple Calculator</title>
@@ -21,13 +20,11 @@
 				<fieldset id = "simple-calculator-container">
 					<legend>Simple Calculator</legend>
 					<form action = "calculator.php" method = "post">
-						<!--<div class = "input">Input 1st Number: --><input type = "text" placeholder = "Input Number" name = "fnum" /><br />
-						<!--<div class = "input" id = "snumber">Input 2nd Number: --><input type = "text" id = "snumber" placeholder = "Input Number" name = "snum" /><br />
-						<!--<div class = "input">Answer: --><input type = "text" name = "ans" placeholder = "Answer"/><br /><br />
+						<input type = "text" placeholder = "Input Number" name = "fnum" /><br />
+						<input type = "text" id = "snumber" placeholder = "Input Number" name = "snum" /><br />
+						<input type = "text" name = "ans" placeholder = "Answer"/><br /><br />
 						<input type = "submit" value = "Calculate" name = "submit" /><br /><br />
-						<div id = "operation">
-							<!--I have used the onclick attribute in hopes that this would work.
-								I have also used the js file with jquery in hopes that that would work.-->
+						<div id = "operation">							
 							<input type = "radio" name = "op" value = "add"/>Add<br />
 							<input type = "radio" name = "op" value = "mul"/>Multiply<br />
 							<input type = "radio" name = "op" value = "sub"/>Subtract<br />

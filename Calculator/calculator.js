@@ -1,5 +1,5 @@
 $(document).ready(function(){
-            $("input.math").click(function() {
+                $("input[name$='op']").click( function(){
                 var radio = $(this).val();
                 if (radio == 'sqrt')
                 {
@@ -7,8 +7,6 @@ $(document).ready(function(){
                 }
                 else{
                     $("#snumber").show();       
-                }
-                //$("input[name$='snum']").hide();
-                
+                }                
             });
         });

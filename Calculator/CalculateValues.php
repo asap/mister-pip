@@ -2,6 +2,7 @@
 	$radioButton = $_POST['op'];
 	$fnum = $_POST['fnum'];
 	$snum = $_POST['snum'];
+
 	if(is_numeric($_POST['fnum']))
 		$fNum = (float)$_POST['fnum'];	
 	
@@ -40,7 +41,7 @@
 
 <!DOCTYPE html>
 	<html>
-	<head>
+	<head}
 		<meta name = "author" content = "William Salazar"/>
 		<meta name = "description" content =  "This is a calculator that uses basic operations."/>
 		<meta name = "keywords" content = "calculator, simple calculator, calc, simple calc"/>
@@ -50,7 +51,25 @@
 		<script type = "text/javascript" src = "/Calculator/jquery-1.7.2.js"></script>
 		-->
 		<script type = "text/javascript" src = "/Calculator/calculator.js"></script>
-			
+		<script>
+
+		function validateFields(){		
+            var elements = document.getElementsByTagName('input');
+            for (var i = 0; i < element.length; i++){
+                if (element[i].value == "")
+                    alert("You have not entered any values.");
+            }                     
+		}
+
+		function clearFields(){
+			var elements = document.getElementsByTagName('input');
+			for (var i = 0; i < elements.length; i++){
+				if (elements[i].type == "text"){
+					elements[i].value = "";
+				}
+			}
+		}		
+		</script>			
 		<title>Simple Calculator</title>
 	</head>
 	<body>
@@ -62,20 +81,22 @@
 			<article>
 				<fieldset id = "simple-calculator-container">
 					<legend>Simple Calculator</legend>
-					<form action = "<?php PHP_SELF?>" method = "post">
+					<form action = "" method = "post">
 						<input type = "text" placeholder = "Input Number" name = "fnum" value = "<?php echo $fnum;?>" /><br />
 						<input type = "text" id = "snumber" placeholder = "Input Number" name = "snum" value = "<?php echo $snum; ?>"/><br />
 						<input type = "text" name = "ans" placeholder = "Answer" value = "<?php echo $ans;?>" readonly = "read"/>
 						<br /><br /><br />
-						<input type = "submit" value = "Calculate" name = "submit" /><br /><br />
+						<input type = "submit" value = "Calculate" name = "submit"/>
+						<input type = "submit" value = "Clear" onclick = "clearFields()"/><br /><br />
+
 						<div id = "operation">							
-							<input type = "radio" name = "op" value = "add"/>Add<br />
-							<input type = "radio" name = "op" value = "mul"/>Multiply<br />
-							<input type = "radio" name = "op" value = "sub"/>Subtract<br />
-							<input type = "radio" name = "op" value = "div"/>Divide<br />
-							<input type = "radio" name = "op" value = "modulo"/>Modulo<br />
-							<input type = "radio" name = "op" value = "power"/>Power<br />
-							<input type = "radio" name = "op" value = "sqrt"/>Square Root<br />
+							<input type = "radio" name = "op" value = "add" />Add<br />
+							<input type = "radio" name = "op" value = "mul" />Multiply<br />
+							<input type = "radio" name = "op" value = "sub" />Subtract<br />
+							<input type = "radio" name = "op" value = "div" />Divide<br />
+							<input type = "radio" name = "op" value = "modulo" />Modulo<br />
+							<input type = "radio" name = "op" value = "power" />Power<br />
+							<input type = "radio" name = "op" value = "sqrt" />Square Root<br />
 						</div>
 					</form>
 				</fieldset>

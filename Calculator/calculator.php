@@ -30,11 +30,4 @@
 			$ans = sqrt($fNum);
 		break;
 	}
-	
-	/*
-	$_POST['ans'] = (string)$ans;
-	"<form action = 'CalculateValues.html' method = 'post'>"
-		$_POST['ans'];
-	"</form>"
-	*/
 ?>

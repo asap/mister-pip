@@ -53,12 +53,12 @@
 		<script type = "text/javascript" src = "/Calculator/calculator.js"></script>
 		<script>
 
-		function validateFields(){		
+		function validateFields(){
             var elements = document.getElementsByTagName('input');
             for (var i = 0; i < element.length; i++){
                 if (element[i].value == "")
                     alert("You have not entered any values.");
-            }                     
+            }
 		}
 
 		function clearFields(){
@@ -68,8 +68,8 @@
 					elements[i].value = "";
 				}
 			}
-		}		
-		</script>			
+		}
+		</script>
 		<title>Simple Calculator</title>
 	</head>
 	<body>
@@ -86,7 +86,7 @@
 						<input type = "text" id = "snumber" placeholder = "Input Number" name = "snum" value = "<?php echo $snum; ?>"/><br />
 						<input type = "text" name = "ans" placeholder = "Answer" value = "<?php echo $ans;?>" readonly = "read"/>
 						<br /><br /><br />
-						<input type = "submit" value = "Calculate" name = "submit"/>
+						<input type = "submit" value = "Calculate" name = "submit" onclick = "validateFields()"/>
 						<input type = "submit" value = "Clear" onclick = "clearFields()"/><br /><br />
 
 						<div id = "operation">							

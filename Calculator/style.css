@@ -9,13 +9,6 @@ legend{
 	color: orange;
 }
 
-#calculation{
-	height: 15px;
-	width: 15px;
-	background: #777777;
-	display: inline;
-}
-
 #simple-calculator-container{
 	height: 250px;
 	width: 500px;

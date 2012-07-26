@@ -41,35 +41,16 @@
 
 <!DOCTYPE html>
 	<html>
-	<head}
+	<head>
 		<meta name = "author" content = "William Salazar"/>
 		<meta name = "description" content =  "This is a calculator that uses basic operations."/>
 		<meta name = "keywords" content = "calculator, simple calculator, calc, simple calc"/>
-		<link rel = "stylesheet" href = "/Calculator/style.css"/>
+		<link rel = "stylesheet" href = "style.css"/>
 		<script type = "text/javascript" src = "http://code.jquery.com/jquery-1.7.2.js"></script>
 		<!--This second script tag can be used if it is preferred to have jQuery as a js file.
 		<script type = "text/javascript" src = "/Calculator/jquery-1.7.2.js"></script>
 		-->
-		<script type = "text/javascript" src = "/Calculator/calculator.js"></script>
-		<script>
-
-		function validateFields(){
-            var elements = document.getElementsByTagName('input');
-            for (var i = 0; i < element.length; i++){
-                if (element[i].value == "")
-                    alert("You have not entered any values.");
-            }
-		}
-
-		function clearFields(){
-			var elements = document.getElementsByTagName('input');
-			for (var i = 0; i < elements.length; i++){
-				if (elements[i].type == "text"){
-					elements[i].value = "";
-				}
-			}
-		}
-		</script>
+		<script type = "text/javascript" src = "calculator.js"></script>
 		<title>Simple Calculator</title>
 	</head>
 	<body>
@@ -82,21 +63,21 @@
 				<fieldset id = "simple-calculator-container">
 					<legend>Simple Calculator</legend>
 					<form action = "" method = "post">
-						<input type = "text" placeholder = "Input Number" name = "fnum" value = "<?php echo $fnum;?>" /><br />
-						<input type = "text" id = "snumber" placeholder = "Input Number" name = "snum" value = "<?php echo $snum; ?>"/><br />
+						<input id="first_number" type = "text" placeholder = "Input Number" name = "fnum" value = "<?php echo $fnum;?>" /><br />
+						<input id="second_number" type = "text" placeholder = "Input Number" name = "snum" value = "<?php echo $snum; ?>"/><br />
 						<input type = "text" name = "ans" placeholder = "Answer" value = "<?php echo $ans;?>" readonly = "read"/>
 						<br /><br /><br />
-						<input type = "submit" value = "Calculate" name = "submit" onclick = "validateFields()"/>
-						<input type = "submit" value = "Clear" onclick = "clearFields()"/><br /><br />
+						<input id="calculate" type = "submit" value = "Calculate" name = "submit" onclick = "validateFields()"/>
+						<input type="reset" value="Clear"><br /><br />
 
 						<div id = "operation">							
-							<input type = "radio" name = "op" value = "add" />Add<br />
-							<input type = "radio" name = "op" value = "mul" />Multiply<br />
-							<input type = "radio" name = "op" value = "sub" />Subtract<br />
-							<input type = "radio" name = "op" value = "div" />Divide<br />
-							<input type = "radio" name = "op" value = "modulo" />Modulo<br />
-							<input type = "radio" name = "op" value = "power" />Power<br />
-							<input type = "radio" name = "op" value = "sqrt" />Square Root<br />
+							<input id="operation_add" type = "radio" name = "op" value = "add" /><label for="operation_add">Add</label><br />
+							<input id="operation_multiply" type = "radio" name = "op" value = "mul" /><label for="operation_multiply">Multiply</label><br />
+							<input id="operation_sub" type = "radio" name = "op" value = "sub" /><label for="operation_sub">Subtract</label><br />
+							<input id="operation_div" type = "radio" name = "op" value = "div" /><label for="operation_div">Divide</label><br />
+							<input id="operation_mod" type = "radio" name = "op" value = "modulo" /><label for="operation_mod">Modulo</label><br />
+							<input id="operation_pow" type = "radio" name = "op" value = "power" /><label for="operation_pow">Power</label><br />
+							<input id="operation_sqrt" type = "radio" name = "op" value = "sqrt" /><label for="operation_sqrt">Square Root</label><br />
 						</div>
 					</form>
 				</fieldset>

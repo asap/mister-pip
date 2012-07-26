@@ -1,0 +1,36 @@
+#logo{
+	background-image:url('calculator.jpg');
+	background-repeat: no-repeat;
+	width: 270px;
+	height: 200px;
+}
+
+legend{
+	color: orange;
+}
+
+#simple-calculator-container{
+	height: 250px;
+	width: 500px;
+	position: absolute;
+	left: 400px;
+	top: 50px;
+	border-style: solid;
+	border-color: blue;
+}
+
+.input{
+	width: 200px;
+}
+
+#operation{
+	 position: absolute;
+	 left: 300px;
+	 top: 20px;
+}
+
+#footer{
+	position:absolute;
+	top: 650px;
+	left: 500px;
+}

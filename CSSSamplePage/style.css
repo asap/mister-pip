@@ -1,0 +1,32 @@
+.logo{	
+	
+	height: 200px;
+	width: 400px;
+	background-image:url('AmazingSpiderman.jpg'); 
+	background-repeat: no-repeat;	
+}
+
+img{
+
+	width: 80px;
+	height: 80px;
+}
+
+body{
+	color: black;
+	background: azure;
+	font-size: 12pt;
+}
+
+nav{
+	text-align: center;
+}
+
+ul{
+	list-style: round;
+}
+
+footer{
+	text-align: center;
+	font-size: 9pt;	
+}

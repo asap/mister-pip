@@ -1,20 +1,13 @@
-.logo{	
-	
+.logo{
 	height: 200px;
 	width: 400px;
-	background-image:url('AmazingSpiderman.jpg'); 
-	background-repeat: no-repeat;	
-}
-
-img{
-
-	width: 80px;
-	height: 80px;
+	background-image:url('AmazingSpiderman.jpg');
+	background-repeat: no-repeat;
 }
 
 body{
-	color: black;
-	background: azure;
+	color: #000000;
+	background: #00FFFF;
 	font-size: 12pt;
 }
 
@@ -26,7 +19,7 @@ ul{
 	list-style: round;
 }
 
-footer{
+small{
 	text-align: center;
 	font-size: 9pt;	
 }

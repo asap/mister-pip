@@ -1,65 +1,65 @@
 <?php
+if ($_POST){
 	$radioButton = $_POST['op'];
-	$fnum = $_POST['fnum'];
-	$snum = $_POST['snum'];
+	$firstNum = $_POST['fnum'];
+	$secondNum = $_POST['snum'];
+	if ($radioButton == 'add') $radioButton = '+';
+	else if ($radioButton == 'div') $radioButton = '/';
+	else if ($radioButton == 'mul') $radioButton = '*';
+	else if ($radioButton == 'sub') $radioButton = '-';
+	else if ($radioButton == 'modulo') $radioButton = '%';
+	else if ($radioButton == 'power') $radioButton = '^';
 
-	if(is_numeric($_POST['fnum']))
-		$fNum = (float)$_POST['fnum'];	
+	if(is_numeric($firstNum))
+		$firstNumber = (float)$firstNum;
 	
-	if(is_numeric($_POST['snum']))
-		$sNum = (float)$_POST['snum'];
+	if(is_numeric($secondNum))
+		$secondNumber = (float)$secondNum;
 	
 	switch($radioButton)
 	{
-		case 'div':
-			$ans = $fNum / $sNum; 
+		case '/':
+			if ($secondNumber == 0){
+				$answer = "Answer is Undefined.";
+			}
+			else
+				$answer = $firstNumber / $secondNumber; 
 		break;
-		case 'add':
-			$ans = $fNum + $sNum;
+		case '+':
+			$answer = $firstNumber + $secondNumber;
 		break;
-		case 'sub':
-			$ans = $fNum - $sNum;
+		case '-':
+			$answer = $firstNumber - $secondNumber;
 		break;
-		case 'mul':
-			$ans = $fNum * $sNum;
+		case '*':
+			$answer = $firstNumber * $secondNumber;
 		break;
-		case 'modulo':
-			$ans = $fNum % $sNum;
+		case '%':
+			$answer = $firstNumber % $secondNumber;
 		break;
-		case 'power':
-			$ans = pow($fNum,$sNum);
+		case '^':
+			$answer = pow($firstNumber,$secondNumber);
 		break;
 		case 'sqrt':
-			if ($fNum < 0)
-				$ans = "Error!, not a real number";
-			else				
-			$ans = sqrt($fNum);
+			if ($firstNumber < 0)
+				$answer = "Error!, not a real number";
+			else
+			$answer = sqrt($firstNumber);
 		break;
 	}
+}
 ?>
-
 
 <!DOCTYPE html>
 	<html>
-	<head}
+	<head>
 		<meta name = "author" content = "William Salazar"/>
 		<meta name = "description" content =  "This is a calculator that uses basic operations."/>
 		<meta name = "keywords" content = "calculator, simple calculator, calc, simple calc"/>
 		<link rel = "stylesheet" href = "/Calculator/style.css"/>
 		<script type = "text/javascript" src = "http://code.jquery.com/jquery-1.7.2.js"></script>
-		<!--This second script tag can be used if it is preferred to have jQuery as a js file.
-		<script type = "text/javascript" src = "/Calculator/jquery-1.7.2.js"></script>
-		-->
 		<script type = "text/javascript" src = "/Calculator/calculator.js"></script>
 		<script>
-
-		function validateFields(){
-            var elements = document.getElementsByTagName('input');
-            for (var i = 0; i < element.length; i++){
-                if (element[i].value == "")
-                    alert("You have not entered any values.");
-            }
-		}
 
 		function clearFields(){
 			var elements = document.getElementsByTagName('input');
@@ -82,21 +82,27 @@
 				<fieldset id = "simple-calculator-container">
 					<legend>Simple Calculator</legend>
 					<form action = "" method = "post">
-						<input type = "text" placeholder = "Input Number" name = "fnum" value = "<?php echo $fnum;?>" /><br />
-						<input type = "text" id = "snumber" placeholder = "Input Number" name = "snum" value = "<?php echo $snum; ?>"/><br />
-						<input type = "text" name = "ans" placeholder = "Answer" value = "<?php echo $ans;?>" readonly = "read"/>
-						<br /><br /><br />
-						<input type = "submit" value = "Calculate" name = "submit" onclick = "validateFields()"/>
+						<input id = "firstNumber" type = "text" placeholder = "Input Number" name = "fnum" value = "<?php echo $firstNum;?>" /><br />
+						<input id = "secondNumber" type = "text" placeholder = "Input Number" name = "snum" value = "<?php echo $secondNum; ?>"/><br />
+						<input type = "text" name = "ans" placeholder = "Answer" value = "<?php echo $answer;?>" readonly = "read"/><br>
+						<div id = "calculation">
+							<label for="first_number" ><?php echo $firstNum; ?></label>
+							<label for="operation" ><?php echo $radioButton; ?></label>
+							<label for="second_number" ><?php echo $secondNum; ?></label>=
+							<label for="answer" ><?php echo $answer; ?></label>
+						</div>
+						<br><br><br>
+						<input id = "submitButton" type = "submit" value = "Calculate" name = "submit" />
 						<input type = "submit" value = "Clear" onclick = "clearFields()"/><br /><br />
 
-						<div id = "operation">							
-							<input type = "radio" name = "op" value = "add" />Add<br />
-							<input type = "radio" name = "op" value = "mul" />Multiply<br />
-							<input type = "radio" name = "op" value = "sub" />Subtract<br />
-							<input type = "radio" name = "op" value = "div" />Divide<br />
-							<input type = "radio" name = "op" value = "modulo" />Modulo<br />
-							<input type = "radio" name = "op" value = "power" />Power<br />
-							<input type = "radio" name = "op" value = "sqrt" />Square Root<br />
+						<div id = "operation">
+							<input id="operation_add" type = "radio" name = "op" value = "add" /><label for="operation_add">Add</label><br />
+							<input id="operation_mul" type = "radio" name = "op" value = "mul" /><label for="operation_mul">Multiply</label><br />
+							<input id="operation_sub" type = "radio" name = "op" value = "sub" /><label for="operation_sub">Subtract</label><br />
+							<input id="operation_div" type = "radio" name = "op" value = "div" /><label for="operation_div">Divide</label><br />
+							<input id="operation_mod" type = "radio" name = "op" value = "modulo" /><label for="operation_mod">Modulo</label><br />
+							<input id="operation_pow" type = "radio" name = "op" value = "power" /><label for="operation_pow">Power</label><br />
+							<input id="operation_sqrt" type = "radio" name = "op" value = "sqrt" /><label for="operation_sqrt">Square Root</label><br />
 						</div>
 					</form>
 				</fieldset>

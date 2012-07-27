@@ -12,7 +12,6 @@ $(document).ready(function(){
     var $submitButton = $('input#submitButton');
     $submitButton.click(function(){
         var $operation = $("input[name$='op']:checked");
-        //alert($operation.val());
         var $firstNumber = $('input#firstNumber');
         var $secondNumber = $('input#secondNumber');
         

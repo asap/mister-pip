@@ -3,13 +3,7 @@ if ($_POST){
 	$radioButton = $_POST['op'];
 	$firstNum = $_POST['fnum'];
 	$secondNum = $_POST['snum'];
-	if ($radioButton == 'add') $radioButton = '+';
-	else if ($radioButton == 'div') $radioButton = '/';
-	else if ($radioButton == 'mul') $radioButton = '*';
-	else if ($radioButton == 'sub') $radioButton = '-';
-	else if ($radioButton == 'modulo') $radioButton = '%';
-	else if ($radioButton == 'power') $radioButton = '^';
-
+	
 	if(is_numeric($firstNum))
 		$firstNumber = (float)$firstNum;
 	
@@ -18,26 +12,26 @@ if ($_POST){
 	
 	switch($radioButton)
 	{
-		case '/':
+		case 'div':
 			if ($secondNumber == 0){
 				$answer = "Answer is Undefined.";
 			}
 			else
 				$answer = $firstNumber / $secondNumber; 
 		break;
-		case '+':
+		case 'add':
 			$answer = $firstNumber + $secondNumber;
 		break;
-		case '-':
+		case 'sub':
 			$answer = $firstNumber - $secondNumber;
 		break;
-		case '*':
+		case 'mul':
 			$answer = $firstNumber * $secondNumber;
 		break;
-		case '%':
+		case 'modulo':
 			$answer = $firstNumber % $secondNumber;
 		break;
-		case '^':
+		case 'power':
 			$answer = pow($firstNumber,$secondNumber);
 		break;
 		case 'sqrt':

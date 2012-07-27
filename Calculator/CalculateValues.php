@@ -46,6 +46,12 @@ if ($_POST){
 			else
 			$answer = sqrt($firstNumber);
 		break;
+		case 'log':
+			if ($firstNumber < 0)
+				$answer = "Error! Not defined.";
+			else
+			$answer = log10($firstNumber);
+		break;
 	}
 }
 ?>
@@ -97,6 +103,7 @@ if ($_POST){
 							<input id="operation_mod" type = "radio" name = "op" value = "modulo" /><label for="operation_mod">Modulo</label><br />
 							<input id="operation_pow" type = "radio" name = "op" value = "power" /><label for="operation_pow">Power</label><br />
 							<input id="operation_sqrt" type = "radio" name = "op" value = "sqrt" /><label for="operation_sqrt">Square Root</label><br />
+							<input id="operation_log" type = "radio" name = "op" value = "log" /><label for="operation_log">Logarithm</label><br />
 						</div>
 					</form>
 				</fieldset>

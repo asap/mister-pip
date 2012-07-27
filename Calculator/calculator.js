@@ -2,7 +2,7 @@ $(document).ready(function(){
     $("input[name$='op']").click(function(){
         var $secondNumber = $('input#secondNumber'); 
         var radio = $(this).val();
-        if (radio == 'sqrt') 
+        if (radio == 'sqrt' || radio == 'log') 
             $secondNumber.slideUp();
         else 
             $secondNumber.slideDown();             
@@ -12,6 +12,7 @@ $(document).ready(function(){
     var $submitButton = $('input#submitButton');
     $submitButton.click(function(){
         var $operation = $("input[name$='op']:checked");
+        //alert($operation.val());
         var $firstNumber = $('input#firstNumber');
         var $secondNumber = $('input#secondNumber');
         
@@ -23,14 +24,17 @@ $(document).ready(function(){
             event.preventDefault();
             alert('You forgot to click on an operation');
         }
-        else if (!$firstNumber.val() && !$secondNumber.val()){
-            event.preventDefault();
-            alert('You left both inputs empty.');
+        else if($operation.val() !== 'sqrt' && $operation.val() !== 'log'){
+            if (!$firstNumber.val() && !$secondNumber.val()){
+                event.preventDefault();
+                alert('You left both inputs empty.');
+            }
         }
-        else if (!$firstNumber.val() || !$secondNumber.val()){
-            event.preventDefault();
-            alert('You left one input empty.');
-        }
+        else if($operation.val() == 'sqrt' || $operation.val() == 'log'){
+            if (!$firstNumber.val()){
+                    event.preventDefault();
+                    alert('You left one input empty.');
+            }
+        }        
     });
 });
-        

@@ -59,6 +59,17 @@ if ($_POST){
 		<link rel = "stylesheet" href = "/Calculator/style.css"/>
 		<script type = "text/javascript" src = "http://code.jquery.com/jquery-1.7.2.js"></script>
 		<script type = "text/javascript" src = "/Calculator/calculator.js"></script>
+		<script>
+
+		function clearFields(){
+			var elements = document.getElementsByTagName('input');
+			for (var i = 0; i < elements.length; i++){
+				if (elements[i].type == "text"){
+					elements[i].value = "";
+				}
+			}
+		}
+		</script>
 		<title>Simple Calculator</title>
 	</head>
 	<body>
@@ -73,10 +84,10 @@ if ($_POST){
 					<form action = "" method = "post">
 						<input id = "firstNumber" type = "text" placeholder = "Input Number" name = "fnum" value = "<?php echo $firstNum;?>" /><br />
 						<input id = "secondNumber" type = "text" placeholder = "Input Number" name = "snum" value = "<?php echo $secondNum; ?>"/><br />
-						<input type = "text" name = "ans" placeholder = "Answer" value = "<?php echo $answer;?>" readonly = "read"/><br>
+						<input type = "text" name = "ans" placeholder = "Answer" value = "<?php echo $answer;?>" readonly = "read"/><br>					
 						<br><br><br>
 						<input id = "submitButton" type = "submit" value = "Calculate" name = "submit" />
-						<input id = "resetButton" type = "reset" value = "Clear" /><br /><br />
+						<input id = "resetButton" type = "submit" value = "Clear" onclick="clearFields()"/><br /><br />
 
 						<div id = "operation">
 							<input id="operation_add" type = "radio" name = "op" value = "add" /><label for="operation_add">Add</label><br />

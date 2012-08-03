@@ -29,6 +29,14 @@ $(document).ready(function(){
                 alert('You left both inputs empty.');
             }
         }
+        /*
+        else if($operation.val() !== 'sqrt' && $operation.val() !== 'log'){
+            if (!$firstNumber.val() || !$secondNumber.val()){
+                event.preventDefault();
+                alert('You left one input empty.');
+            }
+        }
+        */
         else if($operation.val() == 'sqrt' || $operation.val() == 'log'){
             if (!$firstNumber.val()){
                     event.preventDefault();

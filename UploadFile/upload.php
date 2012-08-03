@@ -96,10 +96,14 @@ else{
 					<form action="#" method="post">
 						Please choose your download file:
 						<select>
+							<option>Please choose a file</option>
 								<?php
-									foreach($fileDestination as $file){
-										$fileName = basename($file);
-										"<option>". echo $fileName;."</option>"
+									if(is_dir($uploadPath)){
+										if($OpenDir = opendir($uploadPath)){
+											while(($file = readdir($OpenDir)) !== false)
+												echo "<option>$file</option>";
+										}
+										closedir($OpenDir);
 									}
 								?>
 						</select>

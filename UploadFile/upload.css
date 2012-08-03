@@ -1,0 +1,35 @@
+html{
+	background: #999966;
+}
+div#title{
+	position: absolute;
+	left: 500px;
+}
+
+section{
+	position: absolute;
+	top: 100px;
+}
+
+p#container{
+	border-style: solid;
+	border-width: medium;
+	background: #999966;
+}
+p{
+	position: relative;
+	left: 450px;
+}
+div#upload_file{
+	position: absolute;
+	left:250px;
+	width:400px;
+}
+div#download_file{
+	position: absolute;
+	left:750px;
+	width:700px;
+}
+#upload_progress_bar{
+	display: inline;
+}

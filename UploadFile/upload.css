@@ -10,26 +10,32 @@ section{
 	position: absolute;
 	top: 100px;
 }
-
-p#container{
-	border-style: solid;
-	border-width: medium;
-	background: #999966;
-}
 p{
 	position: relative;
 	left: 450px;
 }
-div#upload_file{
+div#container{
+	border: #000000 solid 5px;
+	padding: 10px;
 	position: absolute;
-	left:250px;
-	width:400px;
+	top: 80px;
+	left:300px;
+}
+div#upload_file{
+	position: relative;
+	top: 10px;
+	left: 10px;
+	width: 400px;
 }
 div#download_file{
-	position: absolute;
-	left:750px;
-	width:700px;
+	position: relative;
+	top: -40px;
+	left: 380px;
+	width: 660px;
 }
-#upload_progress_bar{
-	display: inline;
+
+footer{
+	position: absolute;
+	top: 650px;
+	left: 600px;
 }

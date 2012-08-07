@@ -1,12 +1,14 @@
 $(document).ready(function(){
-	
-	$("#upload_progress_bar").progressBar();
-	$("#upload_progress_bar").onclick = progressbar;
+	var progressBar = 0;
+	$('input[type="file"]').click(function(){
+		progressBar = 1;
+	});
 
-	function progressbar(){
-		var xhr = new XMLHttpRequest();  
-    	if (xhr.upload) {
-    		
+	$("#submitForm").submit(function(){
+		$("#upload_progress_bar").show();
+		function set(){
+			$("#upload_progress_bar").attr('src','uploadFile.php?up_id=<?php echo $up_id; ?>');
 		}
-	}
+		setTimeout(set);
+	});
 });

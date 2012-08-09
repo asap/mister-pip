@@ -1,6 +1,4 @@
 <?php
-	$uid = uniqid();
-	$basePath="upload.php";
 	$fileName = $_FILES['file']['name'];
 	$uploadPath = 'upload/';
 	$tempName = $_FILES['file']['tmp_name'];
@@ -10,5 +8,26 @@
 	else{
 		$fileMoved=move_uploaded_file($tempName, $fileDestination);
 	}
-	header("location: ".$basePath);
+	
 ?>
+<!--
+<script type="text/javascript" src="jquery-1.7.2.js"></script>
+<script>
+$(document).ready(function(){
+	alert("test");
+	alert(uploadPath);
+	$.ajax({
+	    type: "POST",
+	    //dataType: "json",
+	    data: uploadPath,
+	    url: "upload.php",
+	    success: function() {
+	    	alert("Success");
+	    },
+	    error:function(){
+	    	alert("Error");
+	    }
+	});
+});
+</script>
+-->

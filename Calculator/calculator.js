@@ -1,33 +1,47 @@
 $(document).ready(function(){
     $("input[name$='op']").click(function(){
+        var $secondNumber = $('input#secondNumber'); 
         var radio = $(this).val();
-
-        if (radio == 'sqrt') 
-            $('input#second_number').slideUp();
+        if (radio == 'sqrt' || radio == 'log') 
+            $secondNumber.slideUp();
         else 
-            $('input#second_number').slideDown();             
+            $secondNumber.slideDown();             
     });
 
-    $('input#calculate').click(function(){
-        var $first_number = $('input#first_number');
-        var $second_number = $('input#second_number');
-        var $operand = $('input[name$="op"]:checked');
 
-        if(!$first_number.val() && !$second_number.val() && !$operand.val()){
-            event.preventDefault();
-            alert("I don't know what to do. Click something and type stuff.");
-        }
-
-        if(!$first_number.val() || !$second_number.val()){
-            event.preventDefault();
-            alert("I can't calculate if you don't enter anything");
-        }
-
-        if(!$operand){
-            event.preventDefault();
-            alert("I don't know what I should be doing. Select an operand.");
-        }
-    });
-
-});
+    var $submitButton = $('input#submitButton');
+    $submitButton.click(function(){
+        var $operation = $("input[name$='op']:checked");
+        var $firstNumber = $('input#firstNumber');
+        var $secondNumber = $('input#secondNumber');
         
+        if (!$operation.val() && !$firstNumber.val() && !$secondNumber.val()){
+            event.preventDefault();
+            alert('You forgot to click on an operation and/or one or more text fields are empty.');
+        }
+        else if (!$operation.val()){
+            event.preventDefault();
+            alert('You forgot to click on an operation');
+        }
+        else if($operation.val() !== 'sqrt' && $operation.val() !== 'log'){
+            if (!$firstNumber.val() && !$secondNumber.val()){
+                event.preventDefault();
+                alert('You left both inputs empty.');
+            }
+        }
+        /*
+        else if($operation.val() !== 'sqrt' && $operation.val() !== 'log'){
+            if (!$firstNumber.val() || !$secondNumber.val()){
+                event.preventDefault();
+                alert('You left one input empty.');
+            }
+        }
+        */
+        else if($operation.val() == 'sqrt' || $operation.val() == 'log'){
+            if (!$firstNumber.val()){
+                    event.preventDefault();
+                    alert('You left one input empty.');
+            }
+        }        
+    });
+});
